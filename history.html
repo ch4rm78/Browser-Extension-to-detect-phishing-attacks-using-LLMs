@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>URL History</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+    h1 {
+      font-size: 24px;
+      color: #4285f4;
+    }
+    .history-container {
+      margin-top: 20px;
+    }
+    .history-item {
+      background-color: white;
+      border-radius: 4px;
+      padding: 10px;
+      margin-bottom: 10px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .domain {
+      font-weight: bold;
+      font-size: 16px;
+    }
+    .date {
+      color: #666;
+      font-size: 12px;
+      margin-top: 5px;
+    }
+    .classification {
+      margin-top: 5px;
+    }
+    .safe {
+      color: green;
+    }
+    .suspicious {
+      color: red;
+    }
+    .back-button {
+      background-color: #30382F;
+      color: #fff;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    .back-button:hover {
+      background-color: #3e4a3d;
+    }
+    .no-history {
+      color: #666;
+      font-style: italic;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>URL History</h1>
+  <div id="history-container" class="history-container">
+    <div class="no-history">Loading history...</div>
+  </div>
+  <button id="back-button" class="back-button">Back to Extension</button>
+
+  <script src="history.js"></script>
+</body>
+</html>

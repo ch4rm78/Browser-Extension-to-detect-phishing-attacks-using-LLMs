@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tab URL Collector</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 10px;
+        width: 300px;
+        background-color: #fffbdf;
+        color: #333;
+      }
+      h1 {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+      button {
+        background-color: #30382F;
+        color: #fff;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+      button:hover {
+        background-color: #3e4a3d;
+      }
+      #output {
+        margin-top: 10px;
+        padding: 10px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        max-height: 200px;
+        overflow-y: auto;
+      }
+      .form-group {
+        margin-bottom: 15px;
+      }
+      input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      .auth-container {
+        display: none;
+      }
+      .main-container {
+        display: none;
+      }
+      .error-message {
+        color: red;
+        margin-bottom: 10px;
+      }
+      .success-message {
+        color: green;
+        margin-bottom: 10px;
+      }
+      .user-info {
+        margin-bottom: 15px;
+        padding: 10px;
+        background-color: #fffbdf;
+        border-radius: 4px;
+      }
+      .history-button {
+        margin-top: 10px;
+        background-color: #30382F;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+      }
+      .history-button:hover {
+        background-color: #3e4a3d;
+      }
+      .cache-info {
+        font-size: 12px;
+        color: #666;
+        margin-top: 5px;
+        font-style: italic;
+      }
+      
+      /* Auth tabs styling */
+      .auth-tabs {
+        display: flex;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #ddd;
+      }
+      
+      .auth-tab {
+        background-color: #fffbdf;
+        color: #333;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px 4px 0 0;
+        cursor: pointer;
+        margin-right: 5px;
+        width: 50%;
+      }
+      
+      .auth-tab.active {
+        background-color: #30382F;
+        color: white;
+      }
+      
+      .auth-form {
+        display: none;
+      }
+      
+      .auth-form.active {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="auth-container" class="auth-container">
+      <div class="auth-tabs">
+        <button id="login-tab" class="auth-tab active">Login</button>
+        <button id="register-tab" class="auth-tab">Register</button>
+      </div>
+      
+      <div id="login-form" class="auth-form active">
+        <h1>Login</h1>
+        <div class="form-group">
+          <input type="text" id="login-username" placeholder="Username">
+          <input type="password" id="login-password" placeholder="Password">
+          <button id="login-button">Login</button>
+        </div>
+      </div>
+      
+      <div id="register-form" class="auth-form">
+        <h1>Register</h1>
+        <div class="form-group">
+          <input type="text" id="register-username" placeholder="New Username">
+          <input type="password" id="register-password" placeholder="New Password">
+          <button id="register-button">Register</button>
+        </div>
+      </div>
+      
+      <div id="auth-message"></div>
+    </div>
+
+    <div id="main-container" class="main-container">
+      <div class="user-info">
+        Welcome, <span id="username-display"></span>
+        <button id="logout-button">Logout</button>
+      </div>
+      <h1>Tab URL Collector</h1>
+      <button id="collectUrls">Collect Tab URLs</button>
+      <div id="output">Click the button to collect URLs from all open tabs.</div>
+      <div id="cache-info" class="cache-info"></div>
+      <button id="view-history" class="history-button">View Domain History</button>
+    </div>
+
+
+    <script src="popup.js"></script>
+  </body>
+</html>
